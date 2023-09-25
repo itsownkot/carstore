@@ -41,14 +41,17 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
               className="object-contain ml-1"
             />
           </Listbox.Button>
-          {/* FIXME: список растягивает контейнер */}
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options>
+            <Listbox.Options
+              className={`border rounded-md p-1 absolute w-full bg-white ${
+                title === "year" && "text-center"
+              }`}
+            >
               {options.map((option) => (
                 <Listbox.Option
                   key={option.title}

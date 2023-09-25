@@ -18,7 +18,7 @@ const SearchManufacturer = ({
         );
 
   return (
-    <div>
+    <div className="relative">
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="flex items-center gap-2">
           <Combobox.Button>
@@ -32,7 +32,6 @@ const SearchManufacturer = ({
             className="bg-gray-200 px-2 py-1 rounded-md w-full hover:bg-gray-300 transition"
           />
         </div>
-        {/* FIXME: сделать выпадающий список не блочным */}
         <Transition
           as={Fragment}
           leave="transition ease-in duration-100"
@@ -40,7 +39,7 @@ const SearchManufacturer = ({
           leaveTo="opacity-0"
           afterLeave={() => setQuery("")}
         >
-          <Combobox.Options className="overflow-y-auto max-h-[200px]">
+          <Combobox.Options className="overflow-y-auto max-h-[200px] border p-1 rounded-md absolute mt-1 w-full bg-white">
             {filteredBrands.length === 0 && query !== "" ? (
               <Combobox.Option value={query}>
                 There is no '{query}'
